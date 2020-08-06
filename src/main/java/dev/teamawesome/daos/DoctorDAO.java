@@ -1,5 +1,7 @@
 package dev.teamawesome.daos;
 
+import java.util.Set;
+
 import dev.teamawesome.entities.Doctor;
 
 public interface  DoctorDAO
@@ -9,7 +11,7 @@ public interface  DoctorDAO
     Doctor createDoctor(Doctor doctor);
 
     Doctor getDoctorById(int id);
-    Doctor getAllDoctors();
+    Set<Doctor> getAllDoctors();
 
     Doctor updateDoctor(Doctor doctor);
 
