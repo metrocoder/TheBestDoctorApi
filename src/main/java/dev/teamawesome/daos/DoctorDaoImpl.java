@@ -1,43 +1,63 @@
 package dev.teamawesome.daos;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import dev.teamawesome.entities.Doctor;
 
 public class DoctorDaoImpl implements DoctorDAO {
 
-	Map<Integer, Doctor> doctors= new HashMap<>();
+	private static List<Doctor> doctors= new ArrayList<>();
+	
+	private static Integer count=0;
+	
+	private static DoctorDaoImpl dao;
+	
+	private DoctorDaoImpl () {}
+	
+	
+	public static DoctorDaoImpl getInstance(){
+		if (dao==null)
+			dao = new DoctorDaoImpl();
+		return dao;
+	}
 	
 	
 	@Override
 	public Doctor createDoctor(Doctor doctor) {
 
+		doctor.setId(count);
+
+		doctors.add(doctor);
+		count++;
 		
-		return null;
+		return doctor;
 	}
+	
+	
+	
+	
 
 	@Override
 	public Doctor getDoctorById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return doctors.get(id);
 	}
 
 	@Override
-	public Doctor getAllDoctors() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Doctor> getAllDoctors() {
+		return doctors;
 	}
 
 	@Override
 	public Doctor updateDoctor(Doctor doctor) {
-		// TODO Auto-generated method stub
-		return null;
+		doctors.set(doctor.getId(), doctor);
+		return doctor;
 	}
 
 	@Override
 	public boolean deleteDoctor(Doctor doctor) {
-		// TODO Auto-generated method stub
+		doctors.remove(doctor.getId());
 		return false;
 	}
 
