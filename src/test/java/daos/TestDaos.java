@@ -1,10 +1,6 @@
 package daos;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 
 import dev.teamawesome.daos.DoctorDAO;
 import dev.teamawesome.daos.DoctorDaoImpl;
@@ -15,7 +11,7 @@ import dev.teamawesome.entities.Doctor;
 class TestDaos {
 
 	
-	private DoctorDAO dao = DoctorDaoImpl.getInstance();
+	private static DoctorDAO dao = DoctorDaoImpl.getInstance();
 	
 	@Test
 	@Order(1)
@@ -52,7 +48,16 @@ class TestDaos {
 	@Test
 	@Order(5)
 	void testDeleteDoctor() {
-		Assertions.assertFalse(dao.deleteDoctor(new Doctor(1,"s", "k")));
+		Assertions.assertNotEquals(false, dao.deleteDoctor(new Doctor(1,"s", "k")));
 	}
 
+	@AfterAll
+	@Test
+	 static void doSomething(){
+		for (int i =1 ; i< dao.getAllDoctors().size() -1; i++)
+		{
+			dao.deleteDoctor(dao.getDoctorById(i));
+		}
+
+	}
 }
