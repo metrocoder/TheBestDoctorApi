@@ -1,11 +1,15 @@
 package dev.teamawesome.daos;
 
 import java.util.ArrayList;
+
 import java.util.List;
+
+
 
 import dev.teamawesome.entities.Doctor;
 
 public class DoctorDaoImpl implements DoctorDAO {
+
 
 	private static List<Doctor> doctors= new ArrayList<>();
 	
@@ -21,6 +25,9 @@ public class DoctorDaoImpl implements DoctorDAO {
 			dao = new DoctorDaoImpl();
 		return dao;
 	}
+=======
+	List<Doctor> doctors= new ArrayList<Doctor>();
+
 	
 	
 	@Override
@@ -46,7 +53,12 @@ public class DoctorDaoImpl implements DoctorDAO {
 
 	@Override
 	public List<Doctor> getAllDoctors() {
+
 		return doctors;
+
+		// TODO Auto-generated method stub
+		return null;
+
 	}
 
 	@Override
