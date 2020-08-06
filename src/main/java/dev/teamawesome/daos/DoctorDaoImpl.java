@@ -13,7 +13,7 @@ public class DoctorDaoImpl implements DoctorDAO {
 
 	private static List<Doctor> doctors= new ArrayList<>();
 	
-	private static Integer count=0;
+	private static Integer count=1;
 	
 	private static DoctorDaoImpl dao;
 	
@@ -48,7 +48,7 @@ public class DoctorDaoImpl implements DoctorDAO {
 	@Override
 	public Doctor getDoctorById(int id) {
 
-		return doctors.get(id);
+		return doctors.get(id - 1);
 	}
 
 	@Override
@@ -63,14 +63,16 @@ public class DoctorDaoImpl implements DoctorDAO {
 
 	@Override
 	public Doctor updateDoctor(Doctor doctor) {
-		doctors.set(doctor.getId(), doctor);
-		return doctor;
+		Doctor doctorUpdateMe = doctors.get(doctor.getId() -1 );
+		doctorUpdateMe.setHospital(doctor.getHospital());
+		doctorUpdateMe.setName(doctor.getName());
+		return doctorUpdateMe;
 	}
 
 	@Override
 	public boolean deleteDoctor(Doctor doctor) {
-		doctors.remove(doctor.getId());
-		return false;
+		doctors.remove(doctor.getId() -1 );
+		return true;
 	}
 
 }

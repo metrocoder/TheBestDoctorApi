@@ -46,10 +46,23 @@ class DoctorServiceTest
     void updateDoctor()
     {
         Doctor doctor = dserv.getDoctorById(1);
+        doctor.setHospital("Free Euthenastia clinic");
+        Doctor reesult = dserv.updateDoctor(doctor);
+
+        Assertions.assertEquals("Free Euthenastia clinic", reesult.getHospital());
+    }
+
+    @Test
+    @Order(5)
+    void deleteDoctor()
+    {
+        Doctor doctor = dserv.getDoctorById(1);
         boolean reesult = dserv.deleteDoctor(doctor);
 
-        Assertions.assertNotEquals(false, reesult);
+        Assertions.assertEquals(true, reesult);
     }
+
+
 
 
 }
