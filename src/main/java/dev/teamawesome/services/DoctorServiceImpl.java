@@ -35,4 +35,10 @@ public class DoctorServiceImpl implements DoctorService {
 		return this.ddao.getDoctorById(id);
 	
 	}
+
+	@Override
+	public boolean deleteDoctor(Doctor doctor)
+	{
+		return this.ddao.deleteDoctor(doctor);
+	}
 }

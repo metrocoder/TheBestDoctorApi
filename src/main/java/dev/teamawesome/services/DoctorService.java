@@ -13,4 +13,6 @@ public interface DoctorService
 	Doctor updateDoctor(Doctor doctor);
 	
 	Doctor getDoctorById(int id);
+
+	boolean deleteDoctor(Doctor doctor);
 }
