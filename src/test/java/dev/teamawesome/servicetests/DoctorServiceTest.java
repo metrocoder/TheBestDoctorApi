@@ -38,7 +38,7 @@ class DoctorServiceTest
     void getDoctorById()
     {
         Doctor doctor = dserv.getDoctorById(1);
-        Assertions.assertEquals("Dr. Mario RX", doctor.getName());
+        Assertions.assertEquals("brian", doctor.getName());
     }
 
     @Test
