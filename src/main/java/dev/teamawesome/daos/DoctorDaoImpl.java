@@ -25,8 +25,8 @@ public class DoctorDaoImpl implements DoctorDAO {
 			dao = new DoctorDaoImpl();
 		return dao;
 	}
-=======
-	List<Doctor> doctors= new ArrayList<Doctor>();
+
+
 
 	
 	
@@ -57,7 +57,7 @@ public class DoctorDaoImpl implements DoctorDAO {
 		return doctors;
 
 		// TODO Auto-generated method stub
-		return null;
+		//return null;
 
 	}
 
