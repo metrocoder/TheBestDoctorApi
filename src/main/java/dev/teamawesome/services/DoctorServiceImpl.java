@@ -8,7 +8,7 @@ import dev.teamawesome.entities.Doctor;
 
 public class DoctorServiceImpl implements DoctorService {
 	
-	public DoctorDAO ddao = new DoctorDaoImpl();
+	public DoctorDAO ddao = DoctorDaoImpl.getInstance();
 	public Doctor createDoctor(Doctor doctor) {
 		return this.ddao.createDoctor(doctor);
 	
