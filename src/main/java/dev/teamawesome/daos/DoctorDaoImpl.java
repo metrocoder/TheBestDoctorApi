@@ -1,13 +1,15 @@
 package dev.teamawesome.daos;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+
+import java.util.List;
+
 
 import dev.teamawesome.entities.Doctor;
 
 public class DoctorDaoImpl implements DoctorDAO {
 
-	Map<Integer, Doctor> doctors= new HashMap<>();
+	List<Doctor> doctors= new ArrayList<Doctor>();
 	
 	
 	@Override
@@ -24,7 +26,7 @@ public class DoctorDaoImpl implements DoctorDAO {
 	}
 
 	@Override
-	public Doctor getAllDoctors() {
+	public List<Doctor> getAllDoctors() {
 		// TODO Auto-generated method stub
 		return null;
 	}
